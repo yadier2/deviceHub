@@ -22,7 +22,7 @@ Si prefieres ejecutar el proyecto en un contenedor Docker, asegúrate de tener D
 
 1. Clona este repositorio en tu máquina local:
    ```bash
-   git clone https://github.com/usuario/devicehub.git
+   git clone https://github.com/yadier2/deviceHub
    cd devicehub
 1. Construye y corre los contenedores usando Docker Compose:
    ```bash
