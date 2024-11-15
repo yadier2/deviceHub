@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS mi_base_de_datos;
+
+USE mi_base_de_datos;
+
+CREATE TABLE IF NOT EXISTS device (
+  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  model VARCHAR(100) NOT NULL,
+  storage VARCHAR(15)
+);

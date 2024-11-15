@@ -1,0 +1,37 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: ejemplo_contraseña
+      MYSQL_DATABASE: mi_base_de_datos
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: contraseñad_usuario
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./mysql:/docker-entrypoint-initdb.d
+    restart: always
+    networks:
+      - mi_red
+  
+  my-service:
+    container_name: my-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PORT=${PORT}
+    env_file: .env  
+    ports:
+       - "3001:3001"
+    networks:
+      - mi_red
+    depends_on:
+      - db
+networks:
+  mi_red:
+    driver: bridge    
+
